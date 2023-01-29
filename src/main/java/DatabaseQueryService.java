@@ -18,7 +18,7 @@ public class DatabaseQueryService {
         List<MaxProjectClient> maxProjectClientList = new ArrayList<>();
         try (Connection connection = Database.getInstance().getConnection();
              Statement st = connection.createStatement();
-             ResultSet rs = st.executeQuery(FileReaderDB.getFileReadDB(INIT_DB_FILE_MAX_PROJECTS_CLIENT))){
+             ResultSet rs = st.executeQuery(FileReaderDB.getFileReadDB(INIT_DB_FILE_MAX_PROJECTS_CLIENT))) {
 
             while (rs.next()) {
                 String name = rs.getString("name");
@@ -37,7 +37,7 @@ public class DatabaseQueryService {
         List<MaxSalaryWorker> maxSalaryWorkerList = new ArrayList<>();
         try (Connection connection = Database.getInstance().getConnection();
              Statement st = connection.createStatement();
-             ResultSet rs = st.executeQuery(FileReaderDB.getFileReadDB(INIT_DB_FILE_MAX_SALARY_WORKER))){
+             ResultSet rs = st.executeQuery(FileReaderDB.getFileReadDB(INIT_DB_FILE_MAX_SALARY_WORKER))) {
 
             while (rs.next()) {
                 String name = rs.getString("name");
@@ -54,9 +54,9 @@ public class DatabaseQueryService {
 
     public List<LongestProject> findLongestProject() {
         List<LongestProject> longestProjectList = new ArrayList<>();
-        try(Connection connection = Database.getInstance().getConnection();
-            Statement st = connection.createStatement();
-            ResultSet rs = st.executeQuery(FileReaderDB.getFileReadDB(INIT_DB_FILE_LONGEST_PROJECT))){
+        try (Connection connection = Database.getInstance().getConnection();
+             Statement st = connection.createStatement();
+             ResultSet rs = st.executeQuery(FileReaderDB.getFileReadDB(INIT_DB_FILE_LONGEST_PROJECT))) {
 
             while (rs.next()) {
                 String name = rs.getString("name");
@@ -76,7 +76,7 @@ public class DatabaseQueryService {
         List<YoungestEldestWorkers> youngestOrEldestWorkersList = new ArrayList<>();
         try (Connection connection = Database.getInstance().getConnection();
              Statement st = connection.createStatement();
-             ResultSet rs = st.executeQuery(FileReaderDB.getFileReadDB(INIT_DB_FILE_YOUNGER_ELDEST_WORKERS))){
+             ResultSet rs = st.executeQuery(FileReaderDB.getFileReadDB(INIT_DB_FILE_YOUNGER_ELDEST_WORKERS))) {
 
             while (rs.next()) {
                 String type = rs.getString("type");
@@ -97,7 +97,7 @@ public class DatabaseQueryService {
         List<ProjectPrices> projectPricesList = new ArrayList<>();
         try (Connection connection = Database.getInstance().getConnection();
              Statement st = connection.createStatement();
-             ResultSet rs = st.executeQuery(FileReaderDB.getFileReadDB(INIT_DB_FILE_PROJECT_PRICE))){
+             ResultSet rs = st.executeQuery(FileReaderDB.getFileReadDB(INIT_DB_FILE_PROJECT_PRICE))) {
 
             while (rs.next()) {
                 String name = rs.getString("name");
