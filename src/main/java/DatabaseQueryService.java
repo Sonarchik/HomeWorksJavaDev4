@@ -1,7 +1,9 @@
 import dataDto.*;
 
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,12 +16,9 @@ public class DatabaseQueryService {
 
     public List<MaxProjectClient> findMaxProjectsClient() {
         List<MaxProjectClient> maxProjectClientList = new ArrayList<>();
-        try (ResultSet rs = Database
-                .getInstance()
-                .getConnection()
-                .createStatement()
-                .executeQuery(FileReaderDB
-                        .getFileReadDB(INIT_DB_FILE_MAX_PROJECTS_CLIENT))) {
+        try (Connection connection = Database.getInstance().getConnection();
+             Statement st = connection.createStatement();
+             ResultSet rs = st.executeQuery(FileReaderDB.getFileReadDB(INIT_DB_FILE_MAX_PROJECTS_CLIENT))){
 
             while (rs.next()) {
                 String name = rs.getString("name");
@@ -36,12 +35,9 @@ public class DatabaseQueryService {
 
     public List<MaxSalaryWorker> findMaxSalaryWorker() {
         List<MaxSalaryWorker> maxSalaryWorkerList = new ArrayList<>();
-        try (ResultSet rs = Database
-                .getInstance()
-                .getConnection()
-                .createStatement()
-                .executeQuery(FileReaderDB
-                        .getFileReadDB(INIT_DB_FILE_MAX_SALARY_WORKER))) {
+        try (Connection connection = Database.getInstance().getConnection();
+             Statement st = connection.createStatement();
+             ResultSet rs = st.executeQuery(FileReaderDB.getFileReadDB(INIT_DB_FILE_MAX_SALARY_WORKER))){
 
             while (rs.next()) {
                 String name = rs.getString("name");
@@ -58,12 +54,9 @@ public class DatabaseQueryService {
 
     public List<LongestProject> findLongestProject() {
         List<LongestProject> longestProjectList = new ArrayList<>();
-        try (ResultSet rs = Database
-                .getInstance()
-                .getConnection()
-                .createStatement()
-                .executeQuery(FileReaderDB
-                        .getFileReadDB(INIT_DB_FILE_LONGEST_PROJECT))) {
+        try(Connection connection = Database.getInstance().getConnection();
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(FileReaderDB.getFileReadDB(INIT_DB_FILE_LONGEST_PROJECT))){
 
             while (rs.next()) {
                 String name = rs.getString("name");
@@ -81,12 +74,9 @@ public class DatabaseQueryService {
 
     public List<YoungestEldestWorkers> findYoungestOrEldestWorkers() {
         List<YoungestEldestWorkers> youngestOrEldestWorkersList = new ArrayList<>();
-        try (ResultSet rs = Database
-                .getInstance()
-                .getConnection()
-                .createStatement()
-                .executeQuery(FileReaderDB
-                        .getFileReadDB(INIT_DB_FILE_YOUNGER_ELDEST_WORKERS))) {
+        try (Connection connection = Database.getInstance().getConnection();
+             Statement st = connection.createStatement();
+             ResultSet rs = st.executeQuery(FileReaderDB.getFileReadDB(INIT_DB_FILE_YOUNGER_ELDEST_WORKERS))){
 
             while (rs.next()) {
                 String type = rs.getString("type");
@@ -105,12 +95,9 @@ public class DatabaseQueryService {
 
     public List<ProjectPrices> findProjectPrices() {
         List<ProjectPrices> projectPricesList = new ArrayList<>();
-        try (ResultSet rs = Database
-                .getInstance()
-                .getConnection()
-                .createStatement()
-                .executeQuery(FileReaderDB
-                        .getFileReadDB(INIT_DB_FILE_PROJECT_PRICE))) {
+        try (Connection connection = Database.getInstance().getConnection();
+             Statement st = connection.createStatement();
+             ResultSet rs = st.executeQuery(FileReaderDB.getFileReadDB(INIT_DB_FILE_PROJECT_PRICE))){
 
             while (rs.next()) {
                 String name = rs.getString("name");
